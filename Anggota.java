@@ -1,42 +1,35 @@
-// Class Anggota merepresentasikan satu data anggota (bisa Mahasiswa, Dosen, atau Karyawan)
-// Semua jenis anggota memakai class yang sama, supaya sederhana (tidak pakai inheritance/turunan)
+// Class untuk menyimpan data satu anggota (Mahasiswa/Dosen/Karyawan)
 public class Anggota {
-    private String id;          // menyimpan id unik anggota, contoh: A01, D01, K01
-    private String nama;        // menyimpan nama lengkap anggota
-    private String jenis;       // menyimpan jenis anggota -> "Mahasiswa", "Dosen", atau "Karyawan"
-    private String mataKuliah;  // menyimpan mata kuliah (khusus Mahasiswa & Dosen). Untuk Karyawan diisi "-"
+    private String id;          // id anggota
+    private String nama;        // nama anggota
+    private String jenis;       // jenis: Mahasiswa/Dosen/Karyawan
+    private String mataKuliah;  // mata kuliah (khusus Mahasiswa & Dosen)
 
-    // Constructor -> dipanggil saat objek Anggota baru dibuat, langsung mengisi semua data sekaligus
+    // constructor, isi semua field saat objek dibuat
     public Anggota(String id, String nama, String jenis, String mataKuliah) {
-        this.id = id;                 // "this.id" adalah field milik object, diisi dari parameter id yang dikirim
-        this.nama = nama;             // isi field nama dengan nilai parameter nama
-        this.jenis = jenis;           // isi field jenis dengan nilai parameter jenis
-        this.mataKuliah = mataKuliah; // isi field mataKuliah dengan nilai parameter mataKuliah
+        this.id = id;
+        this.nama = nama;
+        this.jenis = jenis;
+        this.mataKuliah = mataKuliah;
     }
 
-    // Getter untuk mengambil nilai id dari luar class (karena field bersifat private)
     public String getId() {
-        return id;
+        return id; // ambil id
     }
 
-    // Getter untuk mengambil nilai nama dari luar class
     public String getNama() {
-        return nama;
+        return nama; // ambil nama
     }
 
-    // Getter untuk mengambil nilai jenis dari luar class
     public String getJenis() {
-        return jenis;
+        return jenis; // ambil jenis
     }
 
-    // Getter untuk mengambil nilai mataKuliah dari luar class
     public String getMataKuliah() {
-        return mataKuliah;
+        return mataKuliah; // ambil mata kuliah
     }
 
-    // Method ini mengubah data Anggota menjadi 1 baris teks dengan pemisah koma (format CSV sederhana)
-    // Format hasil: id,nama,jenis,mataKuliah -> contoh: A01,Andini Dwi,Mahasiswa,Pemrograman 2
-    // Format inilah yang nanti ditulis ke file txt dan dipakai lagi saat proses baca file
+    // ubah data jadi 1 baris teks untuk disimpan ke file, dipisah koma
     public String toFileFormat() {
         return id + "," + nama + "," + jenis + "," + mataKuliah;
     }
